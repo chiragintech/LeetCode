@@ -1,9 +1,5 @@
 class Solution {
 public:
-    bool comp(int a, int b) 
-    { 
-        return (a < b); 
-    } 
     vector<int> replaceElements(vector<int>& arr) {
         //replace every element with greatest among elements to the right, last replace as -1
         int n,x;
