@@ -6,7 +6,6 @@ class Solution:
         # ans = 2 nums array concatenated
         # return ans
         n = len(nums)
-        for i in range(n):
-            nums.append(nums[i])
+        nums = nums + nums
         ans = nums
         return ans
