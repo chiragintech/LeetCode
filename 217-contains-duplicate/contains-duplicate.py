@@ -3,10 +3,7 @@ class Solution:
         # true if atleast twice in array
         # false if every element distinct
         nums.sort()
-        unique = list(set(nums))
-        unique.sort()
-        print(nums)
-        print(unique)
-        if unique == nums:
-            return False
-        return True
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i - 1]:
+                return True
+        return False
