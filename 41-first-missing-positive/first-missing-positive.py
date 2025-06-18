@@ -7,10 +7,7 @@ class Solution:
                 nums[i],nums[correct] = nums[correct], nums[i]
             else:
                 i += 1
-        c = 1
         for i in range(len(nums)):
-            if nums[i] == c:
-                c += 1
-            else:
-                return c
-        return c
+            if nums[i] != i + 1:
+                return i + 1
+        return len(nums) + 1
