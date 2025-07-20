@@ -10,12 +10,12 @@ def tab(n, dp):
     dp[0] = 1
     dp[1] = 1
     for i in range(2, n + 1):
-        dp[n] = tab(n-1,dp) + tab(n-2,dp)
+        dp[i] = dp[i-1] + dp[i-2]
     return dp[n]
 def optim(n, dp):
     prev2 = 1
     prev = 1
-    for i in range(2, n + 1):
+    for _ in range(2, n + 1):
         curi = prev + prev2
         prev2 = prev
         prev = curi
@@ -23,5 +23,5 @@ def optim(n, dp):
 class Solution:
     def climbStairs(self, n: int) -> int:
         dp = [0] * (n + 1)
-        count = optim(n, dp)
+        count = tab(n, dp)
         return count
