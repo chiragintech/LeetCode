@@ -15,13 +15,25 @@ class Solution:
         graph = matrix_to_list(isConnected)
         visited = set()
         p = 0
+        # for i in range(len(isConnected)):
+        #     if i not in visited:
+        #         visited.add(i)
+        #         dfs(i)
+        #         p += 1
+        # return p 
+
         for i in range(len(isConnected)):
             if i not in visited:
-                visited.add(i)
-                dfs(i)
                 p += 1
-        return p 
-
+                q = deque([i])
+                visited.add(i)
+                while q:
+                    node = q.popleft()
+                    for neigh in graph[node]:
+                        if neigh not in visited:
+                            visited.add(neigh)
+                            q.append(neigh)
+        return p
 
         # visited = [False] * (len(isConnected) + 1)
         # visited[0] = True
