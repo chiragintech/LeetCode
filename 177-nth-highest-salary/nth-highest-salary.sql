@@ -1,0 +1,9 @@
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+  RETURN (
+      # Write your MySQL query statement below.
+    SELECT IFNULL(SALARY,0)
+    FROM (SELECT *, DENSE_RANK() OVER(ORDER BY SALARY DESC) AS RNK FROM EMPLOYEE ) B WHERE B.RNK = N
+    LIMIT 1
+  );
+END
